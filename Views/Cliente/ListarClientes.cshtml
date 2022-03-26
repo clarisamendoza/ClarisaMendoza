@@ -1,0 +1,45 @@
+﻿@model List<ClarisaMendoza.Models.Cliente>
+
+<div class="table-responsive">
+
+    <table class="table table-hover table table-success table-striped">
+        <thead thead-dark>
+            <tr>
+                <th>Id Cliente</th>
+                <th>Nombre Cliente</th>
+                <th>Teléfono</th>
+                <th>Cédula</th>
+                <th>Genero</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model != null)
+                {
+                    foreach (var cliente in Model)
+                    {
+                        <tr>
+                            <td>@cliente.IdCliente</td>
+                            <td>@cliente.Nombre @cliente.Apellido</td>
+                            <td>@cliente.Telefono</td>
+                            <td>@cliente.Cedula</td>
+                            <td>@cliente.Genero</td>
+                            <td>@cliente.Direccion</td>
+                            <td>
+                                <a class="btn btn-info" href="@Url.Action("AgregarCliente", new { IdCliente = cliente.IdCliente,Nombre = cliente.Nombre,cliente.Apellido,Direccion= cliente.Direccion,Telefono = cliente.Telefono,Genero=cliente.Genero })">Editar</a>
+                                <a class="btn btn-danger" href="@Url.Action("EliminarCliente", new { IdCliente = cliente.IdCliente })">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<div>
+    <a class="btn alert-success" asp-action="AgregarCliente">Agregar Nuevo</a>
+</div>

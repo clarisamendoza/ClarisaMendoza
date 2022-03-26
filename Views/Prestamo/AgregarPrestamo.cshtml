@@ -1,0 +1,49 @@
+﻿@model ClarisaMendoza.Models.Prestamo
+<h1>Crear nuevo prestamo</h1>
+
+<form asp-action="Index">
+    <div class="container alert-primary">
+       
+    <div class="row">
+          @Html.TextBoxFor(Model => Model.IdPrestamo, new { @class = "input form-control text-box single-line x-monto ", id = "IdPrestamo", @readonly = "readonly" })
+          <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="col-form-label">Id Cliente</label>
+                    <input type="number" class="form-control" name="IdCliente" value = @Model.IdCliente/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="col-form-label">Plazo</label>
+                    <input type="number" class="form-control" name="Plazo" value = @Model.Plazo/>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="col-form-label">Estado del Prestamo</label>
+                    <input type="text" class="form-control" name="EstadoPrestamo" value = @Model.EstadoPrestamo />
+               </div>
+            </div>
+        </div>
+         <div class="col-md-6">
+            <div class="form-group">
+                 <div class="input-group">
+                    <label class="col-form-label">Interes</label>
+                    <input type="number" class="form-control" name="Interes" value = @Model.Interes/>
+                 </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="form-group">
+       <input type="submit" value="Guardar" asp-action="AgregarPrestamo" class="btn btn-success" />
+    </div>
+</form>

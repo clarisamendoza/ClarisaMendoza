@@ -1,0 +1,18 @@
+﻿
+@model ClarisaMendoza.Models.Cliente
+
+<h1>Editar Cliente</h1>
+
+<form asp-action="AgregarCliente">
+
+    <div class="form-group">
+        <input type="text" class="form-control" name="Nombre" value="@Model.Nombre" />
+        <input type="hidden" name="Id" value="@Model.IdCliente" />
+    </div>
+
+    
+    <div class="form-group">
+       <input type="submit" value="ModificarCliente" class="btn btn-success" />
+    </div>
+
+</form>

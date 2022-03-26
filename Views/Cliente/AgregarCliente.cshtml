@@ -1,0 +1,66 @@
+﻿@model ClarisaMendoza.Models.Cliente
+<h1>Crear nuevo cliente</h1>
+
+<form asp-action="Index">
+    <div class="container alert-primary">
+       
+    <div class="row">
+          @Html.TextBoxFor(Model => Model.IdCliente, new { @class = "input form-control text-box single-line x-monto ", id = "IdCliente", @readonly = "readonly" })
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="col-form-label">Nombre</label>
+                    <input type="text" class="form-control" name="Nombre" value = @Model.Nombre/>
+                </div>
+            </div>
+        </div>
+         <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="col-form-label">Apellido</label>
+                    <input type="text" class="form-control" name="Apellido" value = @Model.Apellido />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="col-form-label">Teléfono</label>
+                    <input type="text" class="form-control" name="Telefono" value = @Model.Telefono />
+               </div>
+            </div>
+        </div>
+         <div class="col-md-6">
+            <div class="form-group">
+                 <div class="input-group">
+                    <label class="col-form-label">Dirección</label>
+                    <input type="text" class="form-control" name="Direccion" value = @Model.Direccion/>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="col-form-label">Genero</label>
+                    <input type="text" class="form-control" name="Genero" value=@Model.Genero/>
+                </div>
+            </div>
+        </div>
+         <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="col-form-label">Cédula</label>
+                    <input type="text" class="form-control" name="Cedula" value=@Model.Cedula />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+       <input type="submit" value="Guardar" asp-action="AgregarCliente" class="btn btn-success" />
+    </div>
+ </div>
+</form>

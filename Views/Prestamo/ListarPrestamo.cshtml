@@ -1,0 +1,42 @@
+﻿@model List<ClarisaMendoza.Models.Prestamo>
+
+<div class="table-responsive">
+
+    <table class="table table-hover table table-hover table table-success table-striped">
+        <thead thead-dark>
+            <tr>
+                <th>Id Cliente</th>
+                <th>Nombre Cliente</th>
+                <th>Interes</th>
+                <th>Estado del prestamo</th>
+                <th>Plazo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model != null)
+                {
+                    foreach (var prestamo in Model)
+                    {
+                        <tr>
+                            <td>@prestamo.IdCliente</td>
+                            <td>@prestamo.Cliente</td>
+                            <td>@prestamo.Interes</td>
+                            <td>@prestamo.EstadoPrestamo</td>
+                            <td>@prestamo.Plazo</td>
+                            <td>
+                                <a class="btn btn-info" href="@Url.Action("AgregarPrestamo", new { IdPrestamo = prestamo.IdPrestamo,IdCliente = prestamo.IdCliente,Interes = prestamo.Interes,plazo= prestamo.Plazo,EstadoPrestamo = prestamo.EstadoPrestamo })">Editar</a>
+                                <a class="btn btn-danger" href="@Url.Action("EliminarPrestamo", new { IdPrestamo = prestamo.IdPrestamo })">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<div>
+    <a class="btn alert-success" asp-action="AgregarPrestamo">Agregar Nuevo</a>
+</div>
